@@ -12,11 +12,40 @@ function fnOnLoad(){
   question6();
 }
 
+
+/*I could have used map
+var all_prices = items.map ( function(item)  {
+
+return item.price;}
+);
+
+var add_together;
+add_together = all_prices.reduce(function (initial, current) {
+
+  return initial + current;
+}
+);
+
+var sum = add_together/items.length;
+
+Question 2
+
+var mid_price_items = items.filter(function(item) {
+return item.price > 14.00 && item.price < 18.00 && item.currency_code=='USD';
+
+});
+
+*/
+
+
+
+
 function question1()
 {
-	//I initialized my sum
+	//I initialized my sum//
+
   var sum = 0;
-  
+
 	var count = items.length;
 	items.forEach(
 	    function addNumber(value) { sum += value.price; }
@@ -29,7 +58,7 @@ function question1()
 function question2()
 {
 	console.log("Solution 2");
-	var filteredArr = items.filter(filterPriceRange);
+	var filteredArr = items.filter(filterPriceRange);//I defined filterPriceRange under question 6
 	console.log("Items that cost between $14.00 USD and $18.00 USD: ");
 
 	//Use map to create new array having subset of values
@@ -73,55 +102,4 @@ function question6()
 	var filteredArr = items.filter(filterSellerCount);
 	//Now for filtered array use reduce to get desired output
 	console.log(filteredArr.length+" were made by their sellers");
-}
-
-
-function formatNumber(value){
-	return parseFloat(Math.round(value * 100) / 100).toFixed(3);
-}
-
-function filterPriceRange(value, index, ar) {
-    if(value.price>=14 && value.price<=18){
-        return true;
-    }
-    return false;
-}
-function filterCurrencyCode(value, index, ar) {
-    if(value.currency_code=="GBP"){
-        return true;
-    }
-    return false;
-}
-function filterWood(value, index, ar) {
-	var found = false;
-	value.materials.forEach(
-			function isWood(materialValue) {
-				if(materialValue=="wood"){
-					found = true;
-				}
-			}
-	);
-
-	return found;
-}
-function filterMaterial(value, index, ar) {
-    if(value.materials.length>=8){
-        return true;
-    }
-    return false;
-}
-
-function appendMaterialCount(previousValue, currentValue){
-	if(previousValue!=""){
-		return previousValue + ":"+ currentValue.title+" has "+currentValue.materials.length+ " materials";
-	}else{
-		return currentValue.title+" has "+currentValue.materials.length+ " materials";
-	}
-}
-
-function filterSellerCount(value, index, ar){
-	if(value.who_made!="i_did"){
-		return true;
-	}
-	return false;
 }

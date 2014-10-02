@@ -1,0 +1,25 @@
+$pink: hsla(330,48%,60%,1);
+$font: sans-serif;
+@mixin standard-box($p) {
+  width:200px;
+  height: 200px;
+  padding:$p;
+  border-radius:200px;
+}
+
+button{
+  background-color: black;
+}
+
+
+.box {
+  @include standard-box(15px);
+  background-color:$pink;
+  margin:50px auto;
+  text-align:center;
+  font-family: $font;
+
+  span {
+    color:white;
+    }
+}
