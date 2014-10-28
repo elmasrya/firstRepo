@@ -1,3 +1,5 @@
-## Yo, I'm a Readme
+fistRepo
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
+This was my very first repo on Github
+
+Author: Andrew El-Masry
